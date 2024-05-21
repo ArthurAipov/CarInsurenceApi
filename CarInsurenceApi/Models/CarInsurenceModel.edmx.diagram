@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b8614c3bc7764889970c22692a6d6881" Name="Diagram1">
+        <EntityTypeShape EntityType="db_aa8f93_carinsurenceModel.AccidentHistory" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_aa8f93_carinsurenceModel.Car" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_aa8f93_carinsurenceModel.DriverLicense" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_aa8f93_carinsurenceModel.Insurence" Width="1.5" PointX="8.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_aa8f93_carinsurenceModel.InsurenceType" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_aa8f93_carinsurenceModel.Request" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_aa8f93_carinsurenceModel.RequestStatus" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_aa8f93_carinsurenceModel.Role" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_aa8f93_carinsurenceModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_aa8f93_carinsurenceModel.User" Width="1.5" PointX="3" PointY="6.125" IsExpanded="true" />
+        <AssociationConnector Association="db_aa8f93_carinsurenceModel.FK_AccidentHistory_User" ManuallyRouted="false" />
+        <AssociationConnector Association="db_aa8f93_carinsurenceModel.FK_Car_User" ManuallyRouted="false" />
+        <AssociationConnector Association="db_aa8f93_carinsurenceModel.FK_DriverLicense_User" ManuallyRouted="false" />
+        <AssociationConnector Association="db_aa8f93_carinsurenceModel.FK_Insurence_InsurenceType" ManuallyRouted="false" />
+        <AssociationConnector Association="db_aa8f93_carinsurenceModel.FK_Insurence_User" ManuallyRouted="false" />
+        <AssociationConnector Association="db_aa8f93_carinsurenceModel.FK_Request_Insurence" ManuallyRouted="false" />
+        <AssociationConnector Association="db_aa8f93_carinsurenceModel.FK_Request_RequestStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="db_aa8f93_carinsurenceModel.FK_User_Role" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
