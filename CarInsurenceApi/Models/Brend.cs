@@ -12,15 +12,18 @@ namespace CarInsurenceApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Car
+    public partial class Brend
     {
-        public int Id { get; set; }
-        public string Number { get; set; }
-        public string HorsePower { get; set; }
-        public int UserId { get; set; }
-        public int ModelId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Brend()
+        {
+            this.Model = new HashSet<Model>();
+        }
     
-        public virtual Model Model { get; set; }
-        public virtual User User { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Model> Model { get; set; }
     }
 }

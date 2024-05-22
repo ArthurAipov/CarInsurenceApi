@@ -26,10 +26,12 @@ namespace CarInsurenceApi.Models
         }
     
         public virtual DbSet<AccidentHistory> AccidentHistory { get; set; }
+        public virtual DbSet<Brend> Brend { get; set; }
         public virtual DbSet<Car> Car { get; set; }
         public virtual DbSet<DriverLicense> DriverLicense { get; set; }
         public virtual DbSet<Insurence> Insurence { get; set; }
         public virtual DbSet<InsurenceType> InsurenceType { get; set; }
+        public virtual DbSet<Model> Model { get; set; }
         public virtual DbSet<Request> Request { get; set; }
         public virtual DbSet<RequestStatus> RequestStatus { get; set; }
         public virtual DbSet<Role> Role { get; set; }

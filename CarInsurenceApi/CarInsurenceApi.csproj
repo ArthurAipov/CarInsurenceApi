@@ -164,11 +164,13 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccidentHistoriesController.cs" />
+    <Compile Include="Controllers\BrendsController.cs" />
     <Compile Include="Controllers\CarsController.cs" />
     <Compile Include="Controllers\DriverLicensesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InsurencesController.cs" />
     <Compile Include="Controllers\InsurenceTypesController.cs" />
+    <Compile Include="Controllers\ModelsController.cs" />
     <Compile Include="Controllers\RequestsController.cs" />
     <Compile Include="Controllers\RequestStatusController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -178,6 +180,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccidentHistory.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Brend.cs">
       <DependentUpon>CarInsurenceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Car.cs">
@@ -205,6 +210,9 @@
       <DependentUpon>CarInsurenceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\InsurenceType.cs">
+      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Model.cs">
       <DependentUpon>CarInsurenceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Request.cs">
