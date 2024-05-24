@@ -12,44 +12,44 @@ using CarInsurenceApi.Models;
 
 namespace CarInsurenceApi.Controllers
 {
-    public class RequestsController : ApiController
+    public class OsagoesController : ApiController
     {
         private db_aa8f93_carinsurenceEntities db = new db_aa8f93_carinsurenceEntities();
 
-        // GET: api/Requests
-        public IQueryable<Request> GetRequest()
+        // GET: api/Osagoes
+        public IQueryable<Osago> GetOsago()
         {
-            return db.Request;
+            return db.Osago;
         }
 
-        // GET: api/Requests/5
-        [ResponseType(typeof(Request))]
-        public IHttpActionResult GetRequest(int id)
+        // GET: api/Osagoes/5
+        [ResponseType(typeof(Osago))]
+        public IHttpActionResult GetOsago(int id)
         {
-            Request request = db.Request.Find(id);
-            if (request == null)
+            Osago osago = db.Osago.Find(id);
+            if (osago == null)
             {
                 return NotFound();
             }
 
-            return Ok(request);
+            return Ok(osago);
         }
 
-        // PUT: api/Requests/5
+        // PUT: api/Osagoes/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutRequest(int id, Request request)
+        public IHttpActionResult PutOsago(int id, Osago osago)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != request.Id)
+            if (id != osago.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(request).State = EntityState.Modified;
+            db.Entry(osago).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace CarInsurenceApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RequestExists(id))
+                if (!OsagoExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace CarInsurenceApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Requests
-        [ResponseType(typeof(Request))]
-        public IHttpActionResult PostRequest(Request request)
+        // POST: api/Osagoes
+        [ResponseType(typeof(Osago))]
+        public IHttpActionResult PostOsago(Osago osago)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Request.Add(request);
+            db.Osago.Add(osago);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = request.Id }, request);
+            return CreatedAtRoute("DefaultApi", new { id = osago.Id }, osago);
         }
 
-        // DELETE: api/Requests/5
-        [ResponseType(typeof(Request))]
-        public IHttpActionResult DeleteRequest(int id)
+        // DELETE: api/Osagoes/5
+        [ResponseType(typeof(Osago))]
+        public IHttpActionResult DeleteOsago(int id)
         {
-            Request request = db.Request.Find(id);
-            if (request == null)
+            Osago osago = db.Osago.Find(id);
+            if (osago == null)
             {
                 return NotFound();
             }
 
-            db.Request.Remove(request);
+            db.Osago.Remove(osago);
             db.SaveChanges();
 
-            return Ok(request);
+            return Ok(osago);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace CarInsurenceApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool RequestExists(int id)
+        private bool OsagoExists(int id)
         {
-            return db.Request.Count(e => e.Id == id) > 0;
+            return db.Osago.Count(e => e.Id == id) > 0;
         }
     }
 }

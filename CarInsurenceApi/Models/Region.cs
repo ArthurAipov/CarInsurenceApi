@@ -12,13 +12,19 @@ namespace CarInsurenceApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Request
+    public partial class Region
     {
-        public int Id { get; set; }
-        public int InsurenceId { get; set; }
-        public int StatusId { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Region()
+        {
+            this.Osago = new HashSet<Osago>();
+        }
     
-        public virtual Insurence Insurence { get; set; }
-        public virtual RequestStatus RequestStatus { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public double CoefficientForOsago { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Osago> Osago { get; set; }
     }
 }

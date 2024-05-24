@@ -9,15 +9,17 @@
 
 namespace CarInsurenceApi.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class AccidentHistory
+    public partial class PhotoEmergency
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public System.DateTime DateOfAccident { get; set; }
+        public int EmergencyApplicationId { get; set; }
+        public byte[] Photo { get; set; }
     
-        public virtual User User { get; set; }
+        [JsonIgnore]
+        public virtual EmergencyApplication EmergencyApplication { get; set; }
     }
 }

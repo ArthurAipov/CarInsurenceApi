@@ -12,44 +12,44 @@ using CarInsurenceApi.Models;
 
 namespace CarInsurenceApi.Controllers
 {
-    public class AccidentHistoriesController : ApiController
+    public class PhotoEmergenciesController : ApiController
     {
         private db_aa8f93_carinsurenceEntities db = new db_aa8f93_carinsurenceEntities();
 
-        // GET: api/AccidentHistories
-        public IQueryable<AccidentHistory> GetAccidentHistory()
+        // GET: api/PhotoEmergencies
+        public IQueryable<PhotoEmergency> GetPhotoEmergency()
         {
-            return db.AccidentHistory;
+            return db.PhotoEmergency;
         }
 
-        // GET: api/AccidentHistories/5
-        [ResponseType(typeof(AccidentHistory))]
-        public IHttpActionResult GetAccidentHistory(int id)
+        // GET: api/PhotoEmergencies/5
+        [ResponseType(typeof(PhotoEmergency))]
+        public IHttpActionResult GetPhotoEmergency(int id)
         {
-            AccidentHistory accidentHistory = db.AccidentHistory.Find(id);
-            if (accidentHistory == null)
+            PhotoEmergency photoEmergency = db.PhotoEmergency.Find(id);
+            if (photoEmergency == null)
             {
                 return NotFound();
             }
 
-            return Ok(accidentHistory);
+            return Ok(photoEmergency);
         }
 
-        // PUT: api/AccidentHistories/5
+        // PUT: api/PhotoEmergencies/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutAccidentHistory(int id, AccidentHistory accidentHistory)
+        public IHttpActionResult PutPhotoEmergency(int id, PhotoEmergency photoEmergency)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != accidentHistory.Id)
+            if (id != photoEmergency.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(accidentHistory).State = EntityState.Modified;
+            db.Entry(photoEmergency).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace CarInsurenceApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!AccidentHistoryExists(id))
+                if (!PhotoEmergencyExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace CarInsurenceApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/AccidentHistories
-        [ResponseType(typeof(AccidentHistory))]
-        public IHttpActionResult PostAccidentHistory(AccidentHistory accidentHistory)
+        // POST: api/PhotoEmergencies
+        [ResponseType(typeof(PhotoEmergency))]
+        public IHttpActionResult PostPhotoEmergency(PhotoEmergency photoEmergency)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.AccidentHistory.Add(accidentHistory);
+            db.PhotoEmergency.Add(photoEmergency);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = accidentHistory.Id }, accidentHistory);
+            return CreatedAtRoute("DefaultApi", new { id = photoEmergency.Id }, photoEmergency);
         }
 
-        // DELETE: api/AccidentHistories/5
-        [ResponseType(typeof(AccidentHistory))]
-        public IHttpActionResult DeleteAccidentHistory(int id)
+        // DELETE: api/PhotoEmergencies/5
+        [ResponseType(typeof(PhotoEmergency))]
+        public IHttpActionResult DeletePhotoEmergency(int id)
         {
-            AccidentHistory accidentHistory = db.AccidentHistory.Find(id);
-            if (accidentHistory == null)
+            PhotoEmergency photoEmergency = db.PhotoEmergency.Find(id);
+            if (photoEmergency == null)
             {
                 return NotFound();
             }
 
-            db.AccidentHistory.Remove(accidentHistory);
+            db.PhotoEmergency.Remove(photoEmergency);
             db.SaveChanges();
 
-            return Ok(accidentHistory);
+            return Ok(photoEmergency);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace CarInsurenceApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool AccidentHistoryExists(int id)
+        private bool PhotoEmergencyExists(int id)
         {
-            return db.AccidentHistory.Count(e => e.Id == id) > 0;
+            return db.PhotoEmergency.Count(e => e.Id == id) > 0;
         }
     }
 }

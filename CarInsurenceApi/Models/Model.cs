@@ -21,11 +21,13 @@ namespace CarInsurenceApi.Models
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
-        public int HorsePower { get; set; }
-        public int BrendId { get; set; }
+        public string Make { get; set; }
+        public string ModelName { get; set; }
+        public string Category { get; set; }
+        public string Year { get; set; }
+        public string ModelYear { get; set; }
+        public string Price { get; set; }
     
-        public virtual Brend Brend { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Car> Car { get; set; }
     }

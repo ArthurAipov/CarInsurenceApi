@@ -163,72 +163,83 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\AccidentHistoriesController.cs" />
-    <Compile Include="Controllers\BrendsController.cs" />
+    <Compile Include="Controllers\BrandsController.cs" />
     <Compile Include="Controllers\CarsController.cs" />
-    <Compile Include="Controllers\DriverLicensesController.cs" />
+    <Compile Include="Controllers\CascoesController.cs" />
+    <Compile Include="Controllers\DriversController.cs" />
+    <Compile Include="Controllers\EmergencyApplicationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\InsurencesController.cs" />
-    <Compile Include="Controllers\InsurenceTypesController.cs" />
     <Compile Include="Controllers\ModelsController.cs" />
-    <Compile Include="Controllers\RequestsController.cs" />
-    <Compile Include="Controllers\RequestStatusController.cs" />
+    <Compile Include="Controllers\OsagoesController.cs" />
+    <Compile Include="Controllers\PhotoEmergenciesController.cs" />
+    <Compile Include="Controllers\RegionsController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\StaffsController.cs" />
+    <Compile Include="Controllers\StatusController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccidentHistory.cs">
-      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Brend.cs">
-      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    <Compile Include="Models\Brand.cs">
+      <DependentUpon>CarInsurence.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Car.cs">
-      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+      <DependentUpon>CarInsurence.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CarInsurenceModel.Context.cs">
+    <Compile Include="Models\CarInsurence.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CarInsurenceModel.Context.tt</DependentUpon>
+      <DependentUpon>CarInsurence.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CarInsurenceModel.cs">
+    <Compile Include="Models\CarInsurence.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+      <DependentUpon>CarInsurence.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\CarInsurenceModel.Designer.cs">
+    <Compile Include="Models\CarInsurence.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CarInsurenceModel.edmx</DependentUpon>
+      <DependentUpon>CarInsurence.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DriverLicense.cs">
-      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    <Compile Include="Models\Casco.cs">
+      <DependentUpon>CarInsurence.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Insurence.cs">
-      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    <Compile Include="Models\Driver.cs">
+      <DependentUpon>CarInsurence.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\InsurenceType.cs">
-      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    <Compile Include="Models\EmergencyApplication.cs">
+      <DependentUpon>CarInsurence.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Model.cs">
-      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+      <DependentUpon>CarInsurence.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Request.cs">
-      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    <Compile Include="Models\Osago.cs">
+      <DependentUpon>CarInsurence.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\RequestStatus.cs">
-      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+    <Compile Include="Models\PhotoEmergency.cs">
+      <DependentUpon>CarInsurence.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Region.cs">
+      <DependentUpon>CarInsurence.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Role.cs">
-      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+      <DependentUpon>CarInsurence.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Staff.cs">
+      <DependentUpon>CarInsurence.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Status.cs">
+      <DependentUpon>CarInsurence.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+      <DependentUpon>CarInsurence.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Type.cs">
+      <DependentUpon>CarInsurence.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>CarInsurenceModel.tt</DependentUpon>
+      <DependentUpon>CarInsurence.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -252,15 +263,15 @@
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Models\CarInsurenceModel.Context.tt">
+    <Content Include="Models\CarInsurence.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarInsurenceModel.edmx</DependentUpon>
-      <LastGenOutput>CarInsurenceModel.Context.cs</LastGenOutput>
+      <DependentUpon>CarInsurence.edmx</DependentUpon>
+      <LastGenOutput>CarInsurence.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\CarInsurenceModel.tt">
+    <Content Include="Models\CarInsurence.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CarInsurenceModel.edmx</DependentUpon>
-      <LastGenOutput>CarInsurenceModel.cs</LastGenOutput>
+      <DependentUpon>CarInsurence.edmx</DependentUpon>
+      <LastGenOutput>CarInsurence.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -287,13 +298,15 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\CarInsurenceModel.edmx">
+    <EntityDeploy Include="Models\CarInsurence.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CarInsurenceModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>CarInsurence.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\CarInsurenceModel.edmx.diagram">
-      <DependentUpon>CarInsurenceModel.edmx</DependentUpon>
+    <Content Include="Models\CarInsurence.edmx.diagram">
+      <DependentUpon>CarInsurence.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\arthuraipov-001-site1 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\arthuraipov-001-site1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

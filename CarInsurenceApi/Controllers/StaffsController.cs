@@ -12,44 +12,44 @@ using CarInsurenceApi.Models;
 
 namespace CarInsurenceApi.Controllers
 {
-    public class DriverLicensesController : ApiController
+    public class StaffsController : ApiController
     {
         private db_aa8f93_carinsurenceEntities db = new db_aa8f93_carinsurenceEntities();
 
-        // GET: api/DriverLicenses
-        public IQueryable<DriverLicense> GetDriverLicense()
+        // GET: api/Staffs
+        public IQueryable<Staff> GetStaff()
         {
-            return db.DriverLicense;
+            return db.Staff;
         }
 
-        // GET: api/DriverLicenses/5
-        [ResponseType(typeof(DriverLicense))]
-        public IHttpActionResult GetDriverLicense(int id)
+        // GET: api/Staffs/5
+        [ResponseType(typeof(Staff))]
+        public IHttpActionResult GetStaff(int id)
         {
-            DriverLicense driverLicense = db.DriverLicense.Find(id);
-            if (driverLicense == null)
+            Staff staff = db.Staff.Find(id);
+            if (staff == null)
             {
                 return NotFound();
             }
 
-            return Ok(driverLicense);
+            return Ok(staff);
         }
 
-        // PUT: api/DriverLicenses/5
+        // PUT: api/Staffs/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutDriverLicense(int id, DriverLicense driverLicense)
+        public IHttpActionResult PutStaff(int id, Staff staff)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != driverLicense.Id)
+            if (id != staff.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(driverLicense).State = EntityState.Modified;
+            db.Entry(staff).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace CarInsurenceApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DriverLicenseExists(id))
+                if (!StaffExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace CarInsurenceApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/DriverLicenses
-        [ResponseType(typeof(DriverLicense))]
-        public IHttpActionResult PostDriverLicense(DriverLicense driverLicense)
+        // POST: api/Staffs
+        [ResponseType(typeof(Staff))]
+        public IHttpActionResult PostStaff(Staff staff)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.DriverLicense.Add(driverLicense);
+            db.Staff.Add(staff);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = driverLicense.Id }, driverLicense);
+            return CreatedAtRoute("DefaultApi", new { id = staff.Id }, staff);
         }
 
-        // DELETE: api/DriverLicenses/5
-        [ResponseType(typeof(DriverLicense))]
-        public IHttpActionResult DeleteDriverLicense(int id)
+        // DELETE: api/Staffs/5
+        [ResponseType(typeof(Staff))]
+        public IHttpActionResult DeleteStaff(int id)
         {
-            DriverLicense driverLicense = db.DriverLicense.Find(id);
-            if (driverLicense == null)
+            Staff staff = db.Staff.Find(id);
+            if (staff == null)
             {
                 return NotFound();
             }
 
-            db.DriverLicense.Remove(driverLicense);
+            db.Staff.Remove(staff);
             db.SaveChanges();
 
-            return Ok(driverLicense);
+            return Ok(staff);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace CarInsurenceApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool DriverLicenseExists(int id)
+        private bool StaffExists(int id)
         {
-            return db.DriverLicense.Count(e => e.Id == id) > 0;
+            return db.Staff.Count(e => e.Id == id) > 0;
         }
     }
 }

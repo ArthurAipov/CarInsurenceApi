@@ -12,44 +12,44 @@ using CarInsurenceApi.Models;
 
 namespace CarInsurenceApi.Controllers
 {
-    public class InsurencesController : ApiController
+    public class StatusController : ApiController
     {
         private db_aa8f93_carinsurenceEntities db = new db_aa8f93_carinsurenceEntities();
 
-        // GET: api/Insurences
-        public IQueryable<Insurence> GetInsurence()
+        // GET: api/Status
+        public IQueryable<Status> GetStatus()
         {
-            return db.Insurence;
+            return db.Status;
         }
 
-        // GET: api/Insurences/5
-        [ResponseType(typeof(Insurence))]
-        public IHttpActionResult GetInsurence(int id)
+        // GET: api/Status/5
+        [ResponseType(typeof(Status))]
+        public IHttpActionResult GetStatus(int id)
         {
-            Insurence insurence = db.Insurence.Find(id);
-            if (insurence == null)
+            Status status = db.Status.Find(id);
+            if (status == null)
             {
                 return NotFound();
             }
 
-            return Ok(insurence);
+            return Ok(status);
         }
 
-        // PUT: api/Insurences/5
+        // PUT: api/Status/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutInsurence(int id, Insurence insurence)
+        public IHttpActionResult PutStatus(int id, Status status)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != insurence.Id)
+            if (id != status.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(insurence).State = EntityState.Modified;
+            db.Entry(status).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace CarInsurenceApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!InsurenceExists(id))
+                if (!StatusExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace CarInsurenceApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Insurences
-        [ResponseType(typeof(Insurence))]
-        public IHttpActionResult PostInsurence(Insurence insurence)
+        // POST: api/Status
+        [ResponseType(typeof(Status))]
+        public IHttpActionResult PostStatus(Status status)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Insurence.Add(insurence);
+            db.Status.Add(status);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = insurence.Id }, insurence);
+            return CreatedAtRoute("DefaultApi", new { id = status.Id }, status);
         }
 
-        // DELETE: api/Insurences/5
-        [ResponseType(typeof(Insurence))]
-        public IHttpActionResult DeleteInsurence(int id)
+        // DELETE: api/Status/5
+        [ResponseType(typeof(Status))]
+        public IHttpActionResult DeleteStatus(int id)
         {
-            Insurence insurence = db.Insurence.Find(id);
-            if (insurence == null)
+            Status status = db.Status.Find(id);
+            if (status == null)
             {
                 return NotFound();
             }
 
-            db.Insurence.Remove(insurence);
+            db.Status.Remove(status);
             db.SaveChanges();
 
-            return Ok(insurence);
+            return Ok(status);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace CarInsurenceApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool InsurenceExists(int id)
+        private bool StatusExists(int id)
         {
-            return db.Insurence.Count(e => e.Id == id) > 0;
+            return db.Status.Count(e => e.Id == id) > 0;
         }
     }
 }

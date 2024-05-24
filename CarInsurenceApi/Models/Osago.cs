@@ -9,21 +9,25 @@
 
 namespace CarInsurenceApi.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class RequestStatus
+    public partial class Osago
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RequestStatus()
-        {
-            this.Request = new HashSet<Request>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
+        public int DriverId { get; set; }
+        public int RegionId { get; set; }
+        public System.DateTime DateStart { get; set; }
+        public System.DateTime DateEnd { get; set; }
+        public int CarId { get; set; }
+        public double Price { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Request> Request { get; set; }
+        [JsonIgnore]
+        public virtual Car Car { get; set; }
+        [JsonIgnore]
+        public virtual Driver Driver { get; set; }
+        [JsonIgnore]
+        public virtual Region Region { get; set; }
     }
 }

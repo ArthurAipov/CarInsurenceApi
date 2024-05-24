@@ -12,17 +12,18 @@ namespace CarInsurenceApi.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DriverLicense
+    public partial class Status
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Status()
+        {
+            this.EmergencyApplication = new HashSet<EmergencyApplication>();
+        }
+    
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Surename { get; set; }
-        public string Patronymic { get; set; }
-        public System.DateTime BirthDate { get; set; }
-        public System.DateTime DateOfIssue { get; set; }
-        public string DateUntil { get; set; }
-        public int UserId { get; set; }
     
-        public virtual User User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EmergencyApplication> EmergencyApplication { get; set; }
     }
 }

@@ -9,27 +9,33 @@
 
 namespace CarInsurenceApi.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class Insurence
+    public partial class EmergencyApplication
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Insurence()
+        public EmergencyApplication()
         {
-            this.Request = new HashSet<Request>();
+            this.PhotoEmergency = new HashSet<PhotoEmergency>();
         }
     
         public int Id { get; set; }
-        public System.DateTime DateOfIssue { get; set; }
-        public int UserId { get; set; }
-        public int InsurenceTypeId { get; set; }
-        public System.DateTime DateUntil { get; set; }
+        public int DriverId { get; set; }
         public int CarId { get; set; }
+        public System.DateTime DateEmergency { get; set; }
+        public int StatusId { get; set; }
+        public double Price { get; set; }
+        public int ApplicationType { get; set; }
     
-        public virtual InsurenceType InsurenceType { get; set; }
-        public virtual User User { get; set; }
+        [JsonIgnore]
+        public virtual Car Car { get; set; }
+        [JsonIgnore]
+        public virtual Driver Driver { get; set; }
+        [JsonIgnore]
+        public virtual Status Status { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Request> Request { get; set; }
+        public virtual ICollection<PhotoEmergency> PhotoEmergency { get; set; }
     }
 }

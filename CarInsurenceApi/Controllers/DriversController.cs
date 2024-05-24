@@ -12,44 +12,44 @@ using CarInsurenceApi.Models;
 
 namespace CarInsurenceApi.Controllers
 {
-    public class RequestStatusController : ApiController
+    public class DriversController : ApiController
     {
         private db_aa8f93_carinsurenceEntities db = new db_aa8f93_carinsurenceEntities();
 
-        // GET: api/RequestStatus
-        public IQueryable<RequestStatus> GetRequestStatus()
+        // GET: api/Drivers
+        public IQueryable<Driver> GetDriver()
         {
-            return db.RequestStatus;
+            return db.Driver;
         }
 
-        // GET: api/RequestStatus/5
-        [ResponseType(typeof(RequestStatus))]
-        public IHttpActionResult GetRequestStatus(int id)
+        // GET: api/Drivers/5
+        [ResponseType(typeof(Driver))]
+        public IHttpActionResult GetDriver(int id)
         {
-            RequestStatus requestStatus = db.RequestStatus.Find(id);
-            if (requestStatus == null)
+            Driver driver = db.Driver.Find(id);
+            if (driver == null)
             {
                 return NotFound();
             }
 
-            return Ok(requestStatus);
+            return Ok(driver);
         }
 
-        // PUT: api/RequestStatus/5
+        // PUT: api/Drivers/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutRequestStatus(int id, RequestStatus requestStatus)
+        public IHttpActionResult PutDriver(int id, Driver driver)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != requestStatus.Id)
+            if (id != driver.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(requestStatus).State = EntityState.Modified;
+            db.Entry(driver).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace CarInsurenceApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!RequestStatusExists(id))
+                if (!DriverExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace CarInsurenceApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/RequestStatus
-        [ResponseType(typeof(RequestStatus))]
-        public IHttpActionResult PostRequestStatus(RequestStatus requestStatus)
+        // POST: api/Drivers
+        [ResponseType(typeof(Driver))]
+        public IHttpActionResult PostDriver(Driver driver)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.RequestStatus.Add(requestStatus);
+            db.Driver.Add(driver);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = requestStatus.Id }, requestStatus);
+            return CreatedAtRoute("DefaultApi", new { id = driver.Id }, driver);
         }
 
-        // DELETE: api/RequestStatus/5
-        [ResponseType(typeof(RequestStatus))]
-        public IHttpActionResult DeleteRequestStatus(int id)
+        // DELETE: api/Drivers/5
+        [ResponseType(typeof(Driver))]
+        public IHttpActionResult DeleteDriver(int id)
         {
-            RequestStatus requestStatus = db.RequestStatus.Find(id);
-            if (requestStatus == null)
+            Driver driver = db.Driver.Find(id);
+            if (driver == null)
             {
                 return NotFound();
             }
 
-            db.RequestStatus.Remove(requestStatus);
+            db.Driver.Remove(driver);
             db.SaveChanges();
 
-            return Ok(requestStatus);
+            return Ok(driver);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace CarInsurenceApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool RequestStatusExists(int id)
+        private bool DriverExists(int id)
         {
-            return db.RequestStatus.Count(e => e.Id == id) > 0;
+            return db.Driver.Count(e => e.Id == id) > 0;
         }
     }
 }

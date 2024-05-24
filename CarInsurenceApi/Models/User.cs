@@ -9,6 +9,7 @@
 
 namespace CarInsurenceApi.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -17,10 +18,8 @@ namespace CarInsurenceApi.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.AccidentHistory = new HashSet<AccidentHistory>();
-            this.Car = new HashSet<Car>();
-            this.DriverLicense = new HashSet<DriverLicense>();
-            this.Insurence = new HashSet<Insurence>();
+            this.Driver = new HashSet<Driver>();
+            this.Staff = new HashSet<Staff>();
         }
     
         public int Id { get; set; }
@@ -29,13 +28,10 @@ namespace CarInsurenceApi.Models
         public int RoleId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AccidentHistory> AccidentHistory { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Car> Car { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DriverLicense> DriverLicense { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Insurence> Insurence { get; set; }
+        public virtual ICollection<Driver> Driver { get; set; }
+        [JsonIgnore]
         public virtual Role Role { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Staff> Staff { get; set; }
     }
 }

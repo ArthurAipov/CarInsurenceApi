@@ -12,44 +12,44 @@ using CarInsurenceApi.Models;
 
 namespace CarInsurenceApi.Controllers
 {
-    public class BrendsController : ApiController
+    public class BrandsController : ApiController
     {
         private db_aa8f93_carinsurenceEntities db = new db_aa8f93_carinsurenceEntities();
 
-        // GET: api/Brends
-        public IQueryable<Brend> GetBrend()
+        // GET: api/Brands
+        public IQueryable<Brand> GetBrand()
         {
-            return db.Brend;
+            return db.Brand;
         }
 
-        // GET: api/Brends/5
-        [ResponseType(typeof(Brend))]
-        public IHttpActionResult GetBrend(int id)
+        // GET: api/Brands/5
+        [ResponseType(typeof(Brand))]
+        public IHttpActionResult GetBrand(int id)
         {
-            Brend brend = db.Brend.Find(id);
-            if (brend == null)
+            Brand brand = db.Brand.Find(id);
+            if (brand == null)
             {
                 return NotFound();
             }
 
-            return Ok(brend);
+            return Ok(brand);
         }
 
-        // PUT: api/Brends/5
+        // PUT: api/Brands/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutBrend(int id, Brend brend)
+        public IHttpActionResult PutBrand(int id, Brand brand)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != brend.Id)
+            if (id != brand.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(brend).State = EntityState.Modified;
+            db.Entry(brand).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace CarInsurenceApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!BrendExists(id))
+                if (!BrandExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace CarInsurenceApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Brends
-        [ResponseType(typeof(Brend))]
-        public IHttpActionResult PostBrend(Brend brend)
+        // POST: api/Brands
+        [ResponseType(typeof(Brand))]
+        public IHttpActionResult PostBrand(Brand brand)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Brend.Add(brend);
+            db.Brand.Add(brand);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = brend.Id }, brend);
+            return CreatedAtRoute("DefaultApi", new { id = brand.Id }, brand);
         }
 
-        // DELETE: api/Brends/5
-        [ResponseType(typeof(Brend))]
-        public IHttpActionResult DeleteBrend(int id)
+        // DELETE: api/Brands/5
+        [ResponseType(typeof(Brand))]
+        public IHttpActionResult DeleteBrand(int id)
         {
-            Brend brend = db.Brend.Find(id);
-            if (brend == null)
+            Brand brand = db.Brand.Find(id);
+            if (brand == null)
             {
                 return NotFound();
             }
 
-            db.Brend.Remove(brend);
+            db.Brand.Remove(brand);
             db.SaveChanges();
 
-            return Ok(brend);
+            return Ok(brand);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace CarInsurenceApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool BrendExists(int id)
+        private bool BrandExists(int id)
         {
-            return db.Brend.Count(e => e.Id == id) > 0;
+            return db.Brand.Count(e => e.Id == id) > 0;
         }
     }
 }

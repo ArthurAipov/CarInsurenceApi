@@ -12,44 +12,44 @@ using CarInsurenceApi.Models;
 
 namespace CarInsurenceApi.Controllers
 {
-    public class InsurenceTypesController : ApiController
+    public class CascoesController : ApiController
     {
         private db_aa8f93_carinsurenceEntities db = new db_aa8f93_carinsurenceEntities();
 
-        // GET: api/InsurenceTypes
-        public IQueryable<InsurenceType> GetInsurenceType()
+        // GET: api/Cascoes
+        public IQueryable<Casco> GetCasco()
         {
-            return db.InsurenceType;
+            return db.Casco;
         }
 
-        // GET: api/InsurenceTypes/5
-        [ResponseType(typeof(InsurenceType))]
-        public IHttpActionResult GetInsurenceType(int id)
+        // GET: api/Cascoes/5
+        [ResponseType(typeof(Casco))]
+        public IHttpActionResult GetCasco(int id)
         {
-            InsurenceType insurenceType = db.InsurenceType.Find(id);
-            if (insurenceType == null)
+            Casco casco = db.Casco.Find(id);
+            if (casco == null)
             {
                 return NotFound();
             }
 
-            return Ok(insurenceType);
+            return Ok(casco);
         }
 
-        // PUT: api/InsurenceTypes/5
+        // PUT: api/Cascoes/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutInsurenceType(int id, InsurenceType insurenceType)
+        public IHttpActionResult PutCasco(int id, Casco casco)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != insurenceType.Id)
+            if (id != casco.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(insurenceType).State = EntityState.Modified;
+            db.Entry(casco).State = EntityState.Modified;
 
             try
             {
@@ -57,7 +57,7 @@ namespace CarInsurenceApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!InsurenceTypeExists(id))
+                if (!CascoExists(id))
                 {
                     return NotFound();
                 }
@@ -70,35 +70,35 @@ namespace CarInsurenceApi.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/InsurenceTypes
-        [ResponseType(typeof(InsurenceType))]
-        public IHttpActionResult PostInsurenceType(InsurenceType insurenceType)
+        // POST: api/Cascoes
+        [ResponseType(typeof(Casco))]
+        public IHttpActionResult PostCasco(Casco casco)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.InsurenceType.Add(insurenceType);
+            db.Casco.Add(casco);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = insurenceType.Id }, insurenceType);
+            return CreatedAtRoute("DefaultApi", new { id = casco.Id }, casco);
         }
 
-        // DELETE: api/InsurenceTypes/5
-        [ResponseType(typeof(InsurenceType))]
-        public IHttpActionResult DeleteInsurenceType(int id)
+        // DELETE: api/Cascoes/5
+        [ResponseType(typeof(Casco))]
+        public IHttpActionResult DeleteCasco(int id)
         {
-            InsurenceType insurenceType = db.InsurenceType.Find(id);
-            if (insurenceType == null)
+            Casco casco = db.Casco.Find(id);
+            if (casco == null)
             {
                 return NotFound();
             }
 
-            db.InsurenceType.Remove(insurenceType);
+            db.Casco.Remove(casco);
             db.SaveChanges();
 
-            return Ok(insurenceType);
+            return Ok(casco);
         }
 
         protected override void Dispose(bool disposing)
@@ -110,9 +110,9 @@ namespace CarInsurenceApi.Controllers
             base.Dispose(disposing);
         }
 
-        private bool InsurenceTypeExists(int id)
+        private bool CascoExists(int id)
         {
-            return db.InsurenceType.Count(e => e.Id == id) > 0;
+            return db.Casco.Count(e => e.Id == id) > 0;
         }
     }
 }

@@ -9,21 +9,20 @@
 
 namespace CarInsurenceApi.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
-    public partial class Brend
+    public partial class Staff
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Brend()
-        {
-            this.Model = new HashSet<Model>();
-        }
-    
         public int Id { get; set; }
+        public int UserId { get; set; }
         public string Name { get; set; }
+        public string Surename { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Model> Model { get; set; }
+        [JsonIgnore]
+        public virtual User User { get; set; }
     }
 }
